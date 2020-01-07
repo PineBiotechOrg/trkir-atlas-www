@@ -1,0 +1,6 @@
+.Plots {
+    // Выпиливаем лого со ссылкой либы с графиками
+    & > div:nth-child(2) > svg > g > g:nth-child(2) > g:nth-child(2) > g > g:nth-child(3) {
+        display: none;
+    }
+}
