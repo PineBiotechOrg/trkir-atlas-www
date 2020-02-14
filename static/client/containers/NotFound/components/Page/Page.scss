@@ -1,0 +1,12 @@
+.NotFound {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+
+    &__content {
+        display: flex;
+        margin-top: 60px;
+        height: available;
+        flex-grow: 1;
+    }
+}

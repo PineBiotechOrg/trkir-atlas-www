@@ -12,5 +12,5 @@ export default function renderOnClientSideOnly(
         );
     }
 
-    return <Component { ...props }/>;
+    return <Component {...props}/>;
 }

@@ -1,0 +1,9 @@
+.ExperimentsTableItemFilters {
+    &__item {
+        display: inline-block !important;
+
+        &Actions {
+            float: right;
+        }
+    }
+}

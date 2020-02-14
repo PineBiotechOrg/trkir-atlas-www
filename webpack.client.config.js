@@ -158,6 +158,9 @@ if (!isProduction) {
 }
 
 if (isProduction) {
+    // react-loadable-ssr-addon делает именным
+    config.optimization.namedChunks = true;
+
     config.optimization.minimizer = [
         new TerserWebpackPlugin({
             terserOptions: {

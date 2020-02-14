@@ -7,7 +7,7 @@ const baseConfig = require('./webpack.base.config');
 
 const config = {
     target: 'node',
-    entry: './static/server/index.tsx',
+    entry: './static/server/index.ts',
     externals: [webpackNodeExternals()],
     output: {
         filename: 'server.js',

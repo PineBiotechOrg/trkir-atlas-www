@@ -12,12 +12,12 @@ import {
     useTheme,
 } from '@amcharts/amcharts4/core';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import uuid from 'uuid';
 
-import { b } from '../../Plots.scss';
-import { DATE_FORMAT, DEFAULT_STYLES } from '../../consts';
-import { Props, State } from './types';
+import {DATE_FORMAT, DEFAULT_STYLES} from '../../consts';
+import {b} from '../../Plots.scss';
+import {Props, State} from './types';
 
 useTheme(am4themes_animated);
 
@@ -90,12 +90,12 @@ export default class BoxPlot extends Component<Props, State> {
 
         return (
             <div
-                id={ this.chartUuid }
-                style={ {
+                id={this.chartUuid}
+                style={{
                     ...DEFAULT_STYLES,
                     ...styles,
-                } }
-                className={ b() }
+                }}
+                className={b()}
             />
         );
     }

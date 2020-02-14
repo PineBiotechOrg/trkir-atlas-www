@@ -1,9 +1,9 @@
-import { XYChart } from '@amcharts/amcharts4/charts';
-import { Color } from '@amcharts/amcharts4/core';
+import {XYChart} from '@amcharts/amcharts4/charts';
+import {Color} from '@amcharts/amcharts4/core';
 
-import { Assign } from 'infrastructure/utils';
+import {Assign} from 'infrastructure/utils';
 
-import { Common } from '../../types';
+import {Common} from '../../types';
 
 export interface PlotGanttPoint {
     name: string;

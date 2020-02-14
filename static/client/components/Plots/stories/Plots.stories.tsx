@@ -1,4 +1,4 @@
-import { storiesOf } from '@storybook/react';
+import {storiesOf} from '@storybook/react';
 import React from 'react';
 
 import {
@@ -20,23 +20,23 @@ import {
 
 storiesOf('Plots', module)
     .add('Simple XY Plot', () => (
-        <SimplePlot data={ getSimplePlotData() }/>
+        <SimplePlot data={getSimplePlotData()}/>
     ))
     .add('Box Plot', () => (
-        <BoxPlot data={ BOX_PLOT_DATA }/>
+        <BoxPlot data={BOX_PLOT_DATA}/>
     ))
     .add('Gantt Plot', () => (
-        <GanttPlot data={ getGanttPlotData() }/>
+        <GanttPlot data={getGanttPlotData()}/>
     ))
     .add('Line bullet Plot', () => (
-        <LineBulletPlot data={ LINE_PLOT_DATA }/>
+        <LineBulletPlot data={LINE_PLOT_DATA}/>
     ))
     .add('Plotly Scatter Plot', () => (
         <Plotly
-            data={ SCATTER_PLOT_DATA }
-            layout={ null }
+            data={SCATTER_PLOT_DATA}
+            layout={null}
         />
     ))
     .add('Bar Plot', () => (
-        <BarPlot data={ BAR_PLOT_DATA }/>
+        <BarPlot data={BAR_PLOT_DATA}/>
     ));

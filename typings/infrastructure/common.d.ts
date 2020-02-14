@@ -1,20 +1,20 @@
 declare module 'infrastructure/common' {
-    import { Location } from 'history';
-    import { RouteComponentProps } from 'react-router';
-    import { Action as ReduxAction } from 'redux';
+    import {Location} from 'history';
+    import {RouteComponentProps} from 'react-router';
+    import {Action as ReduxAction} from 'redux';
 
-    import { Assign, Indexed, Iterable } from 'infrastructure/utils';
+    import {Assign, Indexed, Iterable} from 'infrastructure/utils';
 
     export interface RouterLocation extends Location {
         query?: Indexed;
     }
 
     export interface EntityAPI {
-        request?: (...args: unknown[]) => Iterable<unknown>;
-        create?: (...args: unknown[]) => Iterable<unknown>;
-        update?: (...args: unknown[]) => Iterable<unknown>;
-        delete?: (...args: unknown[]) => Iterable<unknown>;
-        find?: (...args: unknown[]) => Iterable<unknown>;
+        request?: (...args: any[]) => Promise<any>;
+        create?: (...args: any[]) => Promise<any>;
+        update?: (...args: any[]) => Promise<any>;
+        delete?: (...args: any[]) => Promise<any>;
+        find?: (...args: any[]) => Promise<any>;
     }
 
     export type RouteProps<T> = Assign<RouteComponentProps<T>, {

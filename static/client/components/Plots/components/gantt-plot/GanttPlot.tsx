@@ -11,12 +11,12 @@ import {
     Scrollbar,
 } from '@amcharts/amcharts4/core';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
-import React, { PureComponent } from 'react';
+import React, {PureComponent} from 'react';
 import uuid from 'uuid';
 
-import { b } from '../../Plots.scss';
-import { DEFAULT_STYLES } from '../../consts';
-import { Props, State } from './types';
+import {DEFAULT_STYLES} from '../../consts';
+import {b} from '../../Plots.scss';
+import {Props, State} from './types';
 
 useTheme(am4themes_animated);
 
@@ -43,7 +43,7 @@ export default class GanttPlot extends PureComponent<Props, State> {
         const dateAxis = chart.xAxes.push(new DateAxis());
         dateAxis.dateFormatter.dateFormat = 'yyyy-MM-dd HH:mm';
         dateAxis.renderer.minGridDistance = 70;
-        dateAxis.baseInterval = { count: 30, timeUnit: 'minute' };
+        dateAxis.baseInterval = {count: 30, timeUnit: 'minute'};
         dateAxis.max = new Date(2018, 0, 1, 24, 0, 0, 0).getTime();
         dateAxis.strictMinMax = true;
         dateAxis.renderer.tooltipLocation = 0;
@@ -76,12 +76,12 @@ export default class GanttPlot extends PureComponent<Props, State> {
 
         return (
             <div
-                id={ this.chartUuid }
-                style={ {
+                id={this.chartUuid}
+                style={{
                     ...DEFAULT_STYLES,
                     ...styles,
-                } }
-                className={ b() }
+                }}
+                className={b()}
             />
         );
     }

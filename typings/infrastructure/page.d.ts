@@ -1,5 +1,5 @@
 declare module 'page' {
-    import { RouteComponentProps } from 'react-router';
+    import {RouteComponentProps} from 'react-router';
 
     export interface Preloader {
         routeProps: RouteComponentProps<any>;
@@ -11,8 +11,8 @@ declare module 'page' {
         name?: string;
     }
 
-    export interface Preload {
-        onLoad: (...args: unknown[]) => unknown;
+    export interface Preload<E> {
+        onLoad: (...args: E[]) => unknown;
         onDispose?: (...args: unknown[]) => unknown;
     }
 }

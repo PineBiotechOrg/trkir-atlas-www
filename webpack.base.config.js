@@ -34,7 +34,6 @@ config.module.rules.push(
 );
 
 config.module.rules.push(
-    {test: /\.tsx?$/, enforce: 'pre', loader: 'tslint-loader'},
     {
         test: /\.tsx?$/,
         use: [

@@ -5,9 +5,6 @@ services:
         build:
             context: .
             dockerfile: docker/Dockerfile
-            args:
-                BUILD: stable
-                PORT: 3061
         ports:
             - 3061:3061
         env_file:

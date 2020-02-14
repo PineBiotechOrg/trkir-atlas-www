@@ -3,8 +3,9 @@ set -e
 
 TAG=${1:-`date '+%Y%m%d%H%M%S'`}
 REGISTRY=${2:-vpereskokov/vpagroup}
+BUILD=${3:-testing}
 
-echo "${TAG}" "${REGISTRY}"
+echo "${TAG}" "${REGISTRY}" "${BUILD}"
 
 DOCKER_CONTAINER_NAME="trkir_www"
 DOCKER_CONTAINER_INDEX="1"
@@ -21,8 +22,16 @@ if docker stop "${DOCKER_CONTAINER_NAME}_${DOCKER_CONTAINER_INDEX}"; then
     echo Stopped
 fi
 
+echo "BUILD=${BUILD}" >> docker/.env
+echo "PORT=3061" >> docker/.env
+
 # Build and push to registry
-docker-compose up --build -d
+docker build --no-cache \
+    --build-arg BUILD="$(echo ${BUILD})" \
+    --build-arg PORT="3061" \
+    -f ./docker/Dockerfile \
+    -t "${DOCKER_CONTAINER_NAME}" .
+docker run --rm -d -p 3061:3061 --name "${DOCKER_CONTAINER_NAME}_${DOCKER_CONTAINER_INDEX}" "${DOCKER_CONTAINER_NAME}"
 docker commit "${DOCKER_CONTAINER_NAME}_${DOCKER_CONTAINER_INDEX}" "${DOCKER_CONTAINER_NAME}"
 pushToRegistry "${TAG}" "${DOCKER_CONTAINER_NAME}"
 

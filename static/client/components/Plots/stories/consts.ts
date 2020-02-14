@@ -1,9 +1,9 @@
 import range from 'lodash/range';
-import { PlotParams } from 'react-plotly.js';
+import {PlotParams} from 'react-plotly.js';
 
 import isServer from 'client/utils/isServerEnvCheker';
 
-import { PlotXYData } from '../components/simple-plot/types';
+import {PlotXYData} from '../components/simple-plot/types';
 
 export const BOX_PLOT_DATA = [{
     date: '2011-08-01',

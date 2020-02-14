@@ -1,8 +1,8 @@
-import { XYChart } from '@amcharts/amcharts4/charts';
+import {XYChart} from '@amcharts/amcharts4/charts';
 
-import { Assign } from 'infrastructure/utils';
+import {Assign} from 'infrastructure/utils';
 
-import { Common } from '../../types';
+import {Common} from '../../types';
 
 export interface LinePlotPoint {
     x: number;

@@ -1,11 +1,8 @@
 import {
     CircleBullet,
-    DateAxis,
     LineSeries,
     ValueAxis,
     XYChart,
-    XYChartScrollbar,
-    XYCursor,
 } from '@amcharts/amcharts4/charts';
 import {
     create as createXYChart,
@@ -13,12 +10,12 @@ import {
     Scrollbar,
 } from '@amcharts/amcharts4/core';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
-import React, { PureComponent } from 'react';
+import React, {PureComponent} from 'react';
 import uuid from 'uuid';
 
-import { b } from '../../Plots.scss';
-import { DEFAULT_STYLES } from '../../consts';
-import { Props, State } from './types';
+import {DEFAULT_STYLES} from '../../consts';
+import {b} from '../../Plots.scss';
+import {Props, State} from './types';
 
 useTheme(am4themes_animated);
 
@@ -83,12 +80,12 @@ export default class LineBulletPlot extends PureComponent<Props, State> {
 
         return (
             <div
-                id={ this.chartUuid }
-                style={ {
+                id={this.chartUuid}
+                style={{
                     ...DEFAULT_STYLES,
                     ...styles,
-                } }
-                className={ b() }
+                }}
+                className={b()}
             />
         );
     }
