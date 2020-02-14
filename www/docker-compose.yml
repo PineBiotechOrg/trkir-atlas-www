@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+    trkir_www:
+        build:
+            context: .
+            dockerfile: docker/Dockerfile
+        ports:
+            - 3061:3061
+        env_file:
+            - ./docker/.env

@@ -1,0 +1,45 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "sourceMap": true,
+        "target": "es5",
+        "jsx": "react",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "declaration": false,
+        "noImplicitAny": false,
+        "noImplicitReturns": false,
+        "removeComments": true,
+        "resolveJsonModule": true,
+        "strictNullChecks": false,
+        "esModuleInterop": true,
+        "outDir": "build",
+        "lib": ["es6", "es7", "dom"],
+        "baseUrl": "static",
+        "paths": {
+            "*": ["node_modules/*", "static/*", "static/client/*", "*"]
+        },
+        "typeRoots": ["typings/**/*.d.ts", "node_modules/@types"],
+        "plugins": [
+            {
+                "transform": "ts-transformer-keys/transformer"
+            },
+            {
+                "transform": "typescript-plugin-styled-components",
+                "type": "config",
+                "minify": true,
+                "ssr": true
+            }
+        ]
+    },
+    "include": [
+        "static",
+        "typings/**/*.d.ts",
+        "node_modules/@types",
+        "static/client"
+    ],
+    "compileOnSave": false,
+    "exclude": ["public", "node_modules", "build", "dist"]
+}
