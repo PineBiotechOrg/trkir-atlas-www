@@ -25,6 +25,10 @@ declare module 'entity/experiments' {
     }
 
     export interface ExperimentFilters {
+        title: string;
+    }
+
+    export interface ExperimentMiceFilters {
         name: string;
     }
 }

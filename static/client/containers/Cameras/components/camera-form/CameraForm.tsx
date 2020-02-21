@@ -26,6 +26,7 @@ export default class CameraForm extends React.PureComponent<Props> {
                 <Form onSubmit={this.handleSubmit}>
                     <Form.Item label="Title" help="Camera 01">
                         { getFieldDecorator<Model>('name', {
+                            rules: [{required: true}],
                             initialValue: item?.name,
                         })(
                             <Input/>,
@@ -34,6 +35,7 @@ export default class CameraForm extends React.PureComponent<Props> {
 
                     <Form.Item label="IP" help="84.121.65.12">
                         { getFieldDecorator<Model>('ip', {
+                            rules: [{required: true}],
                             initialValue: item?.ip,
                         })(
                             <Input/>,

@@ -16,7 +16,7 @@ class ExperimentsApi implements EntityAPI {
 
     public changeStatus = (id: string, status: ExperimentStatus): Promise<unknown> =>
         pybackendExperimentsApi.post<{ status: ExperimentStatus }, unknown>(
-            `/experiment/${id}/change_experiment_status`, {status},
+            `/experiment/${id}/status`, {status},
         );
 }
 

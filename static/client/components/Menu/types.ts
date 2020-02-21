@@ -1,5 +1,6 @@
 export const enum MenuGroup {
     Library = 'library',
+    Cameras = 'cameras',
 }
 
 export interface NavigationMenuItem {

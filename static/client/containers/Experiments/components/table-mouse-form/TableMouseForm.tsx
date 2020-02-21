@@ -35,11 +35,9 @@ export default class TableMouseForm extends React.PureComponent<Props> {
                         { getFieldDecorator<Model>('camera', {
                             rules: [{required: true}],
                         })(
-                            <Select
-                                placeholder="Select camera"
-                            >
+                            <Select placeholder="Select camera" optionLabelProp="title">
                                 {cameras.map(({id, name, ip}) => (
-                                    <Select.Option key={`${id}_${name}`} value={id}>
+                                    <Select.Option key={`${id}_${name}`} value={id} title={name}>
                                         <Row gutter={16}>
                                             <Col span={12}>
                                                 <p>{name}</p>

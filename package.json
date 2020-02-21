@@ -50,7 +50,8 @@
         "react-table-hoc-fixed-columns": "2.1.1",
         "redux": "4.0.1",
         "redux-thunk": "2.3.0",
-        "reselect": "4.0.0"
+        "reselect": "4.0.0",
+        "video-react": "0.14.1"
     },
     "devDependencies": {
         "@amcharts/amcharts4": "4.7.14",

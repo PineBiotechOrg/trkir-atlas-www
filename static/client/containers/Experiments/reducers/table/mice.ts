@@ -1,12 +1,12 @@
 import {createAction, handleActions, Action} from 'redux-actions';
 
-import {ExperimentFilters} from 'entity/experiments';
+import {ExperimentMiceFilters} from 'entity/experiments';
 
 export type ActionType =
-    | Partial<ExperimentFilters>;
+    | Partial<ExperimentMiceFilters>;
 
 export interface MiceReducer {
-    filters: Partial<ExperimentFilters>;
+    filters: Partial<ExperimentMiceFilters>;
 }
 
 const PREFIX = '@experiments/table/mice';
@@ -15,13 +15,13 @@ const defaultState: MiceReducer = {
 };
 
 export const actions = {
-    setFilters: createAction<Partial<ExperimentFilters>>(`${PREFIX}/SET_FILTERS`),
+    setFilters: createAction<Partial<ExperimentMiceFilters>>(`${PREFIX}/SET_FILTERS`),
 };
 
 export default handleActions<MiceReducer, ActionType>({
     [actions.setFilters.toString()]: (
         state: MiceReducer,
-        {payload}: Action<Partial<ExperimentFilters>>,
+        {payload}: Action<Partial<ExperimentMiceFilters>>,
     ): MiceReducer => ({
         ...state,
         filters: {

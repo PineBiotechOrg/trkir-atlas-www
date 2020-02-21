@@ -18,8 +18,14 @@ class AuthCodeService {
     };
 
     public logout = async () => {
-        await apiInstance.logout();
-        commonActions.auth.logout();
+        try {
+            await apiInstance.logout();
+            commonActions.auth.logout();
+        } catch (error) {
+            notification.error({
+                message: 'Cannot logout',
+            });
+        }
     };
 
     public checkUser = (userData: GetUserInfoResponse) => {

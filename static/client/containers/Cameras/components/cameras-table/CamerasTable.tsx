@@ -43,7 +43,7 @@ export default class CamerasTable extends React.PureComponent<Props> {
     private handleClickOnRow = (id: number) => {
         return (event: React.MouseEvent) => {
             event.preventDefault();
-            commonActions.router.push(`${ROOT_PATH}/camera/${id}`)
+            commonActions.router.push(`${ROOT_PATH}/camera/${id}`);
         };
     }
 }

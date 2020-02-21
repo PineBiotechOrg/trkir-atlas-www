@@ -11,6 +11,7 @@ import {
     useTheme,
 } from '@amcharts/amcharts4/core';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
+import isEqual from 'lodash/isEqual';
 import React, {PureComponent} from 'react';
 import uuid from 'uuid';
 
@@ -27,11 +28,10 @@ export default class SimplePlot extends PureComponent<Props, State> {
     private readonly chartUuid: string = uuid();
 
     public componentDidMount() {
-        const {data} = this.props;
         const chart = createXYChart(this.chartUuid, XYChart);
 
         chart.paddingRight = 20;
-        chart.data = data;
+        chart.data = [];
 
         const dateAxis = chart.xAxes.push(new DateAxis());
         dateAxis.renderer.grid.template.location = 0;
@@ -41,6 +41,8 @@ export default class SimplePlot extends PureComponent<Props, State> {
         valueAxis.renderer.minWidth = 35;
 
         const series = chart.series.push(new LineSeries());
+        chart.dateFormatter.inputDateFormat = 'YYYY-MM-DDTHH:mm:ss.SSSSZ';
+
         series.dataFields.dateX = 'x';
         series.dataFields.valueY = 'y';
 
@@ -52,6 +54,14 @@ export default class SimplePlot extends PureComponent<Props, State> {
         chart.scrollbarX = scrollbarX;
 
         this.setState({chart});
+    }
+
+    public componentDidUpdate(prevProps: Readonly<Props>) {
+        const {data} = this.props;
+
+        if (!isEqual(data, prevProps.data)) {
+            this.state.chart.addData(data);
+        }
     }
 
     public componentWillUnmount() {

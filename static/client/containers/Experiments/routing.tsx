@@ -25,6 +25,9 @@ export default (
         <AppRoute
             path={ROOT_PATH}
             component={AsyncPage}
+            componentProps={{
+                type: PageType.Experiment,
+            }}
             exact
         />
 
@@ -60,6 +63,15 @@ export default (
             component={AsyncPage}
             componentProps={{
                 type: PageType.Dashboard,
+            }}
+            exact
+        />
+
+        <AppRoute
+            path={`${ROOT_PATH}/experiment/:id/dashboard/mouse/:mouseId`}
+            component={AsyncPage}
+            componentProps={{
+                type: PageType.Mouse,
             }}
             exact
         />

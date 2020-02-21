@@ -3,4 +3,12 @@
         margin-right: 8px;
         display: inline-block !important;
     }
+
+    &__item {
+        display: inline-block !important;
+
+        &Actions {
+            float: right;
+        }
+    }
 }

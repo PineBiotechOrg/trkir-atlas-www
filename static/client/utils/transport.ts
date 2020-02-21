@@ -3,7 +3,7 @@ import queryString from 'query-string';
 
 import {promiseTimeout} from './timeout';
 
-const enum Methods {
+export const enum Method {
     Get = 'GET',
     Post = 'POST',
     Patch = 'PATCH',
@@ -24,57 +24,42 @@ class HTTPTransport {
 
         return this.request<Query, Result>(
             `${ this.baseUrl }${ endpoint }${ requestParams && `?${requestParams}` }`,
-            Methods.Get,
+            Method.Get,
             undefined,
             headers,
         );
     }
 
     public post<Body, Result>(url: string, body?: Body, headers?: Headers): Promise<Result> {
-        return this.sendWithData<Body, Result>(Methods.Post, url, body, headers);
+        return this.sendWithData<Body, Result>(Method.Post, url, body, headers);
     }
 
     public patch<Body, Result>(url: string, body?: Body, headers?: Headers): Promise<Result> {
-        return this.sendWithData<Body, Result>(Methods.Patch, url, body, headers);
+        return this.sendWithData<Body, Result>(Method.Patch, url, body, headers);
     }
 
     public put<Body, Result>(url: string, body?: Body, headers?: Headers): Promise<Result> {
-        return this.sendWithData<Body, Result>(Methods.Put, url, body, headers);
+        return this.sendWithData<Body, Result>(Method.Put, url, body, headers);
     }
 
     public delete<Body, Result>(url: string, body?: Body, headers?: Headers): Promise<Result> {
-        return this.sendWithData<Body, Result>(Methods.Delete, url, body, headers);
+        return this.sendWithData<Body, Result>(Method.Delete, url, body, headers);
     }
 
-    public formData<Query, Result>(endpoint: string, query?: Query, headers?: Headers): Promise<Response> {
-        const requestParams = queryString.stringify(query);
-
-        return this.requestAll<Query, Result>(
-            `${ this.baseUrl }${ endpoint }${ requestParams && `?${requestParams}` }`,
-            Methods.Get,
-            undefined,
-            headers,
-        );
-    }
-
-    private requestAll<Request, Result>(
+    public customRequest<Request, Result>(
         url: string,
         method: string,
         body?: Request,
         headers?: Headers,
     ): Promise<Response> {
-        if(body instanceof FormData) {
-            headers.delete('Content-Type');
-        }
-
         return promiseTimeout<Response>(
             this.timeout,
             fetch(
                 url,
                 {
                     method,
-                    // headers,
-                    // body: body instanceof FormData ? body : JSON.stringify(body),
+                    headers,
+                    body: body ? JSON.stringify(body) : undefined,
                     credentials: 'same-origin',
                 },
             ),
@@ -119,6 +104,7 @@ class HTTPTransport {
     }
 }
 
+export const api = new HTTPTransport('');
 export const pybackendApi = new HTTPTransport('/api');
 export const pybackendExperimentsApi = new HTTPTransport('/api/experiments');
 export const usersApi = new HTTPTransport('/api/users');

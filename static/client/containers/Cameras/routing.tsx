@@ -14,9 +14,9 @@ const AsyncPage = Loadable({
     loading: () => <Spinner/>,
 } as Loadable.Options<unknown, never>);
 
-extendMenu(MenuGroup.Library, {
+extendMenu(MenuGroup.Cameras, {
     url: ROOT_PATH,
-    title: 'Cameras',
+    title: 'Table',
 });
 
 export default (

@@ -40,7 +40,7 @@ export default function asPage<T>(params: Page) {
                 const {title} = params;
                 const path = routeProps.location.pathname;
 
-                if(!login && path !== '/auth') {
+                if (!login && path !== '/auth') {
                     return null;
                 }
 

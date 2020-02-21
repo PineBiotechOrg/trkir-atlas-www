@@ -21,14 +21,14 @@ export default class ErrorBoundary extends React.PureComponent<Props, State> {
         
         if (state.errorInfo) {
             return (
-                <>
+                <React.Fragment>
                     <h2>Something went wrong.</h2>
                     <details className={b('details')}>
                         { state.error?.toString() }
                         <br/>
                         { state.errorInfo.componentStack }
                     </details>
-                </>
+                </React.Fragment>
             );
         }
         

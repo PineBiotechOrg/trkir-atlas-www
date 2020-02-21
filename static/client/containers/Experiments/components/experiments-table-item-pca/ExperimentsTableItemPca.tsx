@@ -6,7 +6,6 @@ import {Props} from './types';
 
 import {b} from './ExperimentsTableItemPca.scss';
 
-
 export default class ExperimentsTableItemPca extends React.PureComponent<Props> {
     public render() {
         const {data} = this.props;

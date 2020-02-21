@@ -97,7 +97,7 @@ export default function preload<E>(params: Preload<E>) {
                     } catch (e) {
                         return reject(e);
                     }
-                })
+                });
             }
         }
 

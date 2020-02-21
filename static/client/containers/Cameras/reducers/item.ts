@@ -1,6 +1,6 @@
 import {createAction, handleActions, Action} from 'redux-actions';
 
-import {Camera} from 'entity/cameras'
+import {Camera} from 'entity/cameras';
 
 type ActionTypes =
     | Camera;

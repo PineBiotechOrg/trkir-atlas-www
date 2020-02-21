@@ -22,6 +22,7 @@ export interface AddMouseResponse {
 export interface RouterProps {
     id?: string;
     experimentId?: string;
+    mouseId?: string;
 }
 
 export type RouteProps = RouteComponentProps<RouterProps>;
@@ -29,4 +30,5 @@ export type RouteProps = RouteComponentProps<RouterProps>;
 export const enum PageType {
     Experiment = 'experiment',
     Dashboard = 'dashboard',
+    Mouse = 'mouse',
 }
