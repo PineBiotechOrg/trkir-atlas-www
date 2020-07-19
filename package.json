@@ -135,7 +135,7 @@
         "js-base64": "2.5.2",
         "keymirror": "0.1.1",
         "lint-staged": "8.1.4",
-        "lodash": "4.17.15",
+        "lodash": "4.17.19",
         "lodash-webpack-plugin": "0.11.5",
         "mini-css-extract-plugin": "0.8.0",
         "node-fetch": "2.6.0",
