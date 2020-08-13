@@ -167,7 +167,7 @@
         "redux-devtools-extension": "2.13.8",
         "redux-logger": "3.0.6",
         "sass-loader": "7.1.0",
-        "serialize-javascript": "1.6.1",
+        "serialize-javascript": "4.0.0",
         "style-loader": "0.21.0",
         "styled-components": "4.3.2",
         "svg-inline-loader": "0.8.0",
